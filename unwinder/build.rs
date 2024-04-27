@@ -1,7 +1,6 @@
-fn main()
-{
-    // Use the `cc` crate to build a C file and statically link it.
-    cc::Build::new()
-        .file("src/gateway.asm")
-        .compile("gateway");
+use std::env;
+fn main() {
+    let project_dir = env::current_dir().unwrap();
+    println!("cargo:rustc-link-search={}/lib", project_dir.display());
+    // println!("cargo:rustc-link-lib=static=gateway");
 }

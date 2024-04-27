@@ -10,6 +10,7 @@ use windows::Win32::System::Threading::GetCurrentThread;
 use bitreader::BitReader;
 use dinvoke_rs::data::{RuntimeFunction, UNW_FLAG_EHANDLER, UNW_FLAG_CHAININFO, PVOID, JMP_RBX, ADD_RSP, TLS_OUT_OF_INDEXES};
 
+#[link(name = "gateway")]
 extern "C"
 {
     fn spoof_call(structure: PVOID) -> PVOID;
